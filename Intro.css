@@ -1,0 +1,75 @@
+.home {
+  display: flex;
+  padding-top: 1.5rem;
+  padding: 100px 150px;
+  font-family: "DM Sans", sans-serif;
+  min-height: 50vh;
+  justify-content: center;
+  gap: 100px;
+  margin: 50px 50px 0 50px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  border: #0d1013 solid;
+  border-radius: 5px;
+}
+.intro {
+  padding: 20px;
+  transition: 3s;
+}
+.welcome {
+  color: #ffe8db;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.name {
+  color: #ffe8db;
+  font-size: 48px;
+}
+#red {
+  color: red;
+}
+.skill {
+  font-weight: bold;
+  color: rgb(179, 204, 255);
+  margin-bottom: 10px;
+}
+
+.pic img {
+  width: 400px;
+  border-radius: 50%;
+}
+.description {
+  color: #ffe8db;
+  margin-bottom: 40px;
+}
+.link {
+  display: flex;
+  gap: 2rem;
+  justify-content: flex-start;
+}
+.block img {
+  width: 80px;
+}
+@media (max-width: 1100px) {
+  .home {
+    flex-direction: column;
+    height: 100%;
+    padding: 20px;
+    justify-content: center;
+  }
+  .intro {
+    text-align: center;
+  }
+  .profile {
+    display: flex;
+    justify-content: center;
+  }
+  .pic img {
+    width: 300px;
+  }
+  .link {
+    justify-content: center;
+  }
+  .block img {
+    width: 50px;
+  }
+}
