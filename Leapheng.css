@@ -49,12 +49,12 @@
   list-style: none;
 }
 .nav_button:hover {
-  color: whitesmoke;
+  color: #ff0000;
 }
 
 .nav_link:hover {
-  color: Red;
-  transition: color 0.3s ease;
+  color: #ff0000;
+  transition: color 1s ease;
 }
 .nav_link {
   font-size: 20px;
