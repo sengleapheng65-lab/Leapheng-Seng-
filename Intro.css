@@ -10,27 +10,52 @@
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   border: #0d1013 solid;
   border-radius: 5px;
+  overflow: hidden;
 }
 .intro {
   padding: 20px;
-  transition: 3s;
 }
 .welcome {
   color: #ffe8db;
   text-transform: uppercase;
   font-weight: bold;
 }
+
 .name {
   color: #ffe8db;
   font-size: 48px;
+  display: flex;
+  gap: 8px;
 }
-#red {
-  color: red;
+.name span {
+  color: #ff0000;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 0.15em solid currentColor;
+
+  width: 0%;
+  animation: cursor 1s step-end infinite, typing 5s steps(14) infinite alternate;
 }
+
+@keyframes cursor {
+  50% {
+    border-color: transparent;
+  }
+}
+@keyframes typing {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 50%;
+  }
+}
+
 .skill {
   font-weight: bold;
-  color: rgb(179, 204, 255);
+  color: #b3ccff;
   margin-bottom: 10px;
+  overflow: hidden;
 }
 
 .pic img {
@@ -56,8 +81,21 @@
     padding: 20px;
     justify-content: center;
   }
+
   .intro {
     text-align: center;
+  }
+  .name {
+    text-align: center;
+    justify-content: center;
+  }
+  @keyframes typing {
+    from {
+      width: 0%;
+    }
+    to {
+      width: 60%;
+    }
   }
   .profile {
     display: flex;
