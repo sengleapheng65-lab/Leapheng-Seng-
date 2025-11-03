@@ -53,7 +53,7 @@
 }
 
 .nav_link:hover {
-  color: whitesmoke;
+  color: Red;
   transition: color 0.3s ease;
 }
 .nav_link {
