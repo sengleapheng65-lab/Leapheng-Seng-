@@ -49,7 +49,7 @@
   list-style: none;
 }
 .nav_button:hover {
-  color: whitesmokes;
+  color: whitesmoke;
   transition: color 1s ease;
 }
 
