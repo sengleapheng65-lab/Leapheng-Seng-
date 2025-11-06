@@ -74,6 +74,7 @@
 .block img {
   width: 80px;
 }
+
 @media (max-width: 1100px) {
   .home {
     flex-direction: column;
@@ -94,7 +95,7 @@
       width: 0%;
     }
     to {
-      width: 60%;
+      width: 45%;
     }
   }
   .profile {
@@ -109,5 +110,32 @@
   }
   .block img {
     width: 50px;
+  }
+}
+@media (max-width: 500px) {
+  .name {
+    font-size: 30px;
+  }
+  .skill {
+    font-size: 20px;
+  }
+  .description {
+    font-size: 12px;
+  }
+}
+@media (max-width: 1030px) {
+  .name {
+    font-size: 40px;
+  }
+  @keyframes typing {
+    from {
+      width: 0%;
+    }
+    to {
+      width: 40%;
+    }
+  }
+}
+
   }
 }
