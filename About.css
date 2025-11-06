@@ -55,6 +55,7 @@
 #skill {
   scroll-behavior: smooth;
 }
+
 @media (max-width: 1100px) {
   .skill-container {
     flex-wrap: wrap;
@@ -64,3 +65,4 @@
     flex-direction: column;
   }
 }
+ 
