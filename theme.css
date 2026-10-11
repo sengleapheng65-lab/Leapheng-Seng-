@@ -1,0 +1,242 @@
+:root {
+  --background: #141619;
+  --surface: #141619;
+  --card: #1d2228;
+  --text: whitesmoke;
+  --muted: #a8adb5;
+  --border: #292e34;
+  --accent: #ff2020;
+  --shadow: rgba(0, 0, 0, 0.35);
+}
+
+body.light-mode {
+  --background: #ffffff;
+  --surface: #ffffff;
+  --card: #ffffff;
+  --text: #111111;
+  --muted: #555555;
+  --border: #d8d8d8;
+  --accent: #d90000;
+  --shadow: rgba(0, 0, 0, 0.12);
+}
+
+body {
+  background-color: var(--background) !important;
+  color: var(--text) !important;
+  transition:
+    background-color 0.35s ease,
+    color 0.35s ease;
+}
+
+.navbar,
+.container,
+.home,
+.about,
+footer,
+.site-footer {
+  background-color: var(--surface) !important;
+  color: var(--text) !important;
+  border-color: var(--border) !important;
+}
+
+.skill-set {
+  background-color: var(--card) !important;
+  border-color: var(--border) !important;
+}
+
+.nav_link,
+.name,
+.welcome,
+.skill-title,
+.skill-headline,
+.description {
+  color: var(--text) !important;
+}
+
+.skill,
+.skill span {
+  color: var(--accent) !important;
+}
+
+.skill-description {
+  color: var(--muted) !important;
+}
+
+/* Navigation button */
+
+.nav_button {
+  background-color: var(--accent) !important;
+  color: white !important;
+}
+
+.nav_link:hover {
+  color: var(--accent) !important;
+}
+
+.nav_link:hover::after {
+  background-color: var(--accent) !important;
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.navbar_toggle .bar {
+  background-color: var(--text) !important;
+}
+
+/* Floating theme button */
+
+#theme-toggle {
+  position: fixed;
+  right: 25px;
+  bottom: 25px;
+  z-index: 2000;
+
+  width: 54px;
+  height: 54px;
+
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background-color: var(--card);
+  color: var(--text);
+
+  cursor: pointer;
+  font-size: 22px;
+  box-shadow: 0 8px 20px var(--shadow);
+  transition: all 0.3s ease;
+}
+
+#theme-toggle:hover {
+  background-color: var(--accent);
+  color: white;
+  transform: translateY(-5px) rotate(15deg);
+  box-shadow: 0 12px 25px rgba(255, 32, 32, 0.35);
+}
+
+/* Footer */
+
+.site-footer {
+  width: 100%;
+  margin-top: 80px;
+  padding: 55px 8% 25px;
+  border-top: 1px solid var(--border);
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+  padding-bottom: 35px;
+}
+
+.footer-content h2 {
+  margin-bottom: 10px;
+  color: var(--accent);
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 26px;
+}
+
+.footer-content p,
+.footer-bottom {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.footer-links {
+  display: flex;
+  gap: 25px;
+}
+
+.footer-links a {
+  color: var(--text);
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: var(--accent);
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 22px;
+  border-top: 1px solid var(--border);
+  font-size: 12px;
+}
+
+#nav_logo {
+  padding: 6px;
+  border-radius: 50%;
+  background-color: #141619;
+  border: 1px solid var(--border);
+  object-fit: contain;
+}
+
+/* Make the logo visible in light mode */
+body.light-mode #nav_logo {
+  background-color: #111111;
+  border-color: #111111;
+}
+
+.name span {
+  display: inline-block;
+  max-width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  vertical-align: bottom;
+
+  color: var(--accent) !important;
+  border-right: 4px solid var(--accent);
+
+  width: 0;
+  animation:
+    typing 12s steps(10, end) infinite,
+    blinking 0.8s step-end infinite;
+}
+
+@keyframes typing {
+  0%,
+  10% {
+    width: 0;
+  }
+
+  45%,
+  55% {
+    width: 11ch;
+  }
+
+  90%,
+  100% {
+    width: 0;
+  }
+}
+
+@keyframes blinking {
+  50% {
+    border-color: transparent;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+  #theme-toggle {
+    right: 18px;
+    bottom: 18px;
+    width: 48px;
+    height: 48px;
+    font-size: 19px;
+  }
+
+  .footer-content,
+  .footer-bottom {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-links {
+    gap: 18px;
+  }
+}

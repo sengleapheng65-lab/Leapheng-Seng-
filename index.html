@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="Leapheng.css" />
     <link rel="stylesheet" href="Intro.css" />
     <link rel="stylesheet" href="About.css">
+    <link rel="stylesheet" href="theme.css">
 
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -22,19 +23,8 @@
       rel="stylesheet"
     />
     
-    <style>
-      footer {
-        width: auto;
-        margin: 10px;
-        padding: 40px;
-        height: 100px;
-        background-color: rgb(4, 3, 3);
-        color: whitesmoke;
-        text-align: center;
-      }
-    </style>
   </head>
-  <body>
+  <body id="top">
     <nav class="navbar">
       <div class="container">
         <a href=""
@@ -49,7 +39,7 @@
           <li class="item">
             <a href="/index.html" class="nav_link">Home</a>
           </li>
-          <li class="item"><a href="#skill" class="nav_link">About</a></li>
+          <li class="item"><a href="#about" class="nav_link">About</a></li>
           <li class="item">
             <a href="" class="nav_link" draggable="true">Projects</a>
           </li>
@@ -64,8 +54,11 @@
           </li>
           <li class="item"><a target="_blank" href="https://mail.google.com/mail/u/0/#inbox?compose=CllgCJZZQlnxhVhTSNjkGfNRNcGwxhppFqqdFpbZjBBHvLKGlQbvGjnJCCPKxBZxMlWQBzJptVq" class="nav_button">Contact Me</a></li>
         </ul>
+
       </div>
     </nav>
+
+    <button id="theme-toggle" aria-label="Toggle dark and light mode">☀️</button>
 
     <div class="home">
       <div class="intro">
@@ -77,7 +70,7 @@
           <div class="block"><a target="_blank" href="https://www.facebook.com/leap.heng.980/"><img src="./Photo asset/facebook.png" alt="fb icon"></a></div>
           <div class="block"><a target="_blank" href="https://www.instagram.com/sengleapheng98/"><img src="./Photo asset/instagram.png" alt="ig icon"></a></div>
           <div class="block"><a target="_blank" href="https://www.youtube.com/@sengleapheng3546"><img src="./Photo asset/youtube.png" alt="yt icon"></a></div>
-          <div class="block"><a target="_blank" href="https://www.linkedin.com/in/seng-leapheng-97270931b/"><img src="./Photo asset/linkedin.png" alt="li icon"></a></div>
+          <div class="block"><a target="_blank" href="https://www.linkedin.com/in/leapheng-seng-97270931b/?isSelfProfile=true"><img src="./Photo asset/linkedin.png" alt="li icon"></a></div>
         </div>
       </div>
       <div class="profile">
@@ -85,38 +78,131 @@
       </div>
     </div>
 
+    <section id="about" class="education-section">
+  <div class="education-heading">
+    <p class="section-label">ABOUT ME</p>
+    <h2>My Education Background</h2>
+    <p>
+      My education has helped me develop a strong foundation in programming,
+      databases, software engineering, and web development.
+    </p>
+  </div>
+
+  <div class="education-list">
+    <div class="education-card">
+      <span class="education-year">2025 – Present</span>
+
+      <div>
+        <h3>Bachelor of Science in Computer Science</h3>
+        <h4>San Jose State University, San Jose, CA, USA</h4>
+        <p>
+          I am studying computer science with a focus on software development,
+          database systems, programming, and problem-solving.
+        </p>
+      </div>
+    </div>
+
+    <div class="education-list">
+    <div class="education-card">
+      <span class="education-year">2022 – 2025</span>
+
+      <div>
+        <h3>Associate of Science in Computer Science</h3>
+        <h4>San Joaquin Delta College, Stockton, CA, USA</h4>
+        <p>
+          I am studying computer science with a focus on software development,
+          database systems, programming, and problem-solving.
+        </p>
+      </div>
+    </div>
+
+    <div class="education-card">
+      <span class="education-year">Completed</span>
+
+      <div>
+        <h3>High School Diploma</h3>
+        <h4>Sovannaphumi School, Cambodia</h4>
+        <p>
+          My early education helped me build discipline, curiosity, and an
+          interest in technology.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
     <div  class="about">
       <div class="skill-headline">
-        <h1>My Skills</h2>
+        <h1>My Skills</h1>
       </div>
       <div class="skill-container">
-        <div class="skill-set">
-          <div class="skill-icon"><img src="./Photo asset/python.png" alt=""></div>
-          <h3 class="skill-title">Python development</h3>
-          <p class="skill-description" >Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-        </div>
+  <div class="skill-set">
+    <div class="skill-icon">
+      <img src="./Photo asset/python.png" alt="Python logo" />
+    </div>
 
-        <div class="skill-set">
-          <div class="skill-icon"><img src="./Photo asset/software-developer.png" alt=""></div>
-          <h3 class="skill-title">Web development</h3>
-          <p class="skill-description" >Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-        </div>
+    <h3 class="skill-title">Python Development</h3>
 
-        <div id="skill" class="skill-set">
-          <div class="skill-icon"><img src="./Photo asset/apple.png" alt=""></div>
-          <h3 class="skill-title">IOS development</h3>
-          <p class="skill-description" >Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-        </div>
+    <p class="skill-description">
+      I use Python to build programs, automate repetitive tasks, process data,
+      and solve problems with clean and efficient code.
+    </p>
+  </div>
 
+  <div class="skill-set">
+    <div class="skill-icon">
+      <img
+        src="./Photo asset/software-developer.png"
+        alt="Web development icon"
+      />
+    </div>
 
-      </div>
+    <h3 class="skill-title">Web Development</h3>
+
+    <p class="skill-description">
+      I create responsive and user-friendly websites using HTML, CSS, and
+      JavaScript with a focus on clean layouts and accessible interfaces.
+    </p>
+  </div>
+
+  <div id="skill" class="skill-set">
+    <div class="skill-icon">
+      <img src="./Photo asset/apple.png" alt="Apple logo" />
+    </div>
+
+    <h3 class="skill-title">iOS Development</h3>
+
+    <p class="skill-description">
+      I am developing my iOS skills by learning how to design mobile
+      interfaces and build useful applications for Apple devices.
+    </p>
+  </div>
+</div>
       
 
 
     </div>
 
 
-    <footer>© 2025 Leapheng Seng All Rights Reserved.</footer>
+    <footer class="site-footer">
+  <div class="footer-content">
+    <div>
+      <h2>Leapheng Seng</h2>
+      <p>Software Engineer • Web Developer • App Developer</p>
+    </div>
+
+    <div class="footer-links">
+      <a href="#top">Home</a>
+      <a href="#skill">Skills</a>
+      <a href="mailto:leapheng@example.com">Contact</a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2026 Leapheng Seng. All Rights Reserved.</p>
+    <p>Built with HTML, CSS, and JavaScript.</p>
+  </div>
+</footer>
     <script src="./index.js"></script>
   </body>
 </html>
