@@ -254,14 +254,6 @@ body.light-mode #nav_logo {
   }
 }
 
-@media (max-width: 550px) {
-  #typing-name {
-    display: block;
-    min-width: 0;
-    margin-top: 5px;
-  }
-}
-
 /* ===================================
    FOOTER
    =================================== */
@@ -351,9 +343,32 @@ body.light-mode #nav_logo {
     justify-content: center;
     gap: 18px;
   }
+}
 
-  .name span {
-    max-width: 13ch;
+/* Center typing name on phones */
+
+/* Center typing name on phones */
+
+@media (max-width: 550px) {
+  .name {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+    text-align: center;
+  }
+
+  #typing-name {
+    display: block;
+
+    width: max-content;
+    max-width: 100%;
+    min-width: 0;
+
+    margin: 5px 0 0;
+
+    text-align: center;
   }
 }
 
@@ -371,9 +386,9 @@ body.light-mode #nav_logo {
     transition-duration: 0.01ms !important;
   }
 
-  .name span {
-    width: auto;
-    max-width: none;
+  #typing-name {
+    width: max-content;
+    max-width: 100%;
     border-right: none;
   }
 }
