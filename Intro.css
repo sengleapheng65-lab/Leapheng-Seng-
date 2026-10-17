@@ -4,20 +4,42 @@
 
 .home {
   display: flex;
+  position: relative;
   align-items: center;
   justify-content: center;
   gap: clamp(60px, 7vw, 110px);
-
   width: 100%;
   min-height: min(100svh, 900px);
   margin: 0;
   padding: 125px 7% 65px;
-
   background-color: var(--surface);
   color: var(--text);
-
   font-family: "DM Sans", sans-serif;
   overflow: hidden;
+  border-color: black;
+}
+/* Bottom divider for Intro section */
+
+.home::after {
+  content: "";
+
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+
+  width: min(1100px, 85%);
+  height: 1px;
+
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--border) 20%,
+    var(--accent) 50%,
+    var(--border) 80%,
+    transparent
+  );
+
+  transform: translateX(-50%);
 }
 
 /* ===================================
@@ -84,7 +106,6 @@
 .skill {
   max-width: 700px;
   margin: 25px 0 18px;
-
   color: var(--text);
   font-size: clamp(22px, 3vw, 36px);
   font-weight: 600;
@@ -103,7 +124,6 @@
 .description {
   max-width: 650px;
   margin-bottom: 35px;
-
   color: var(--muted);
   font-size: 16px;
   line-height: 1.75;
@@ -123,10 +143,8 @@
 .block {
   width: 48px;
   height: 48px;
-
   border: 1px solid var(--border);
   border-radius: 50%;
-
   background-color: var(--card);
   box-shadow: 0 8px 20px var(--shadow);
 
@@ -151,9 +169,7 @@
 .block img {
   width: 24px;
   height: 24px;
-
   object-fit: contain;
-
   transition:
     transform 0.3s ease,
     filter 0.3s ease;

@@ -74,15 +74,44 @@ if (themeToggle) {
 }
 
 /* ===================================
-   NAVBAR SCROLL EFFECT
+   NAVBAR SCROLL BEHAVIOR
    =================================== */
+
+let previousScrollPosition = window.scrollY;
 
 function updateNavbar() {
   if (!navbar) {
     return;
   }
 
-  navbar.classList.toggle("scrolled", window.scrollY > 80);
+  const currentScrollPosition = Math.max(window.scrollY, 0);
+
+  const scrollDifference = currentScrollPosition - previousScrollPosition;
+
+  /* Connected and visible at the top */
+
+  if (currentScrollPosition <= 80) {
+    navbar.classList.remove("scrolled");
+    navbar.classList.remove("nav-hidden");
+  } else {
+    /* Separate the navbar after leaving the top */
+
+    navbar.classList.add("scrolled");
+
+    /* Hide when scrolling down */
+
+    if (scrollDifference > 5) {
+      navbar.classList.add("nav-hidden");
+    }
+
+    /* Show when scrolling up */
+
+    if (scrollDifference < -5) {
+      navbar.classList.remove("nav-hidden");
+    }
+  }
+
+  previousScrollPosition = currentScrollPosition;
 }
 
 window.addEventListener("scroll", updateNavbar, {

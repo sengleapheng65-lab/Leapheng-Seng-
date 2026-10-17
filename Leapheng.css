@@ -1,6 +1,11 @@
-/* ================================
-   RESET
-   ================================ */
+/* =================================
+   RESET AND VARIABLES
+================================= */
+
+:root {
+  --display: "Bricolage Grotesque", system-ui, sans-serif;
+  --body: "Onest", system-ui, sans-serif;
+}
 
 * {
   box-sizing: border-box;
@@ -15,11 +20,9 @@ html {
 
 body {
   min-height: 100vh;
-
-  font-family: "DM Sans", sans-serif;
-  line-height: 1.6;
-
   overflow-x: hidden;
+  font-family: var(--body);
+  line-height: 1.6;
 }
 
 body.menu-open {
@@ -37,75 +40,94 @@ a {
 }
 
 img {
-  max-width: 100%;
   display: block;
+  max-width: 100%;
 }
 
-/* ================================
-   NAVIGATION
-   ================================ */
+/* =================================
+   TYPOGRAPHY
+================================= */
+
+h1,
+h2,
+h3 {
+  font-family: var(--display);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+
+  font-variation-settings:
+    "wdth" 100,
+    "opsz" 48;
+}
+
+/* =================================
+   NAVBAR
+================================= */
 
 .navbar {
-  width: 100%;
-  padding: 16px 5%;
-
   position: fixed;
   top: 0;
   left: 0;
-
   z-index: 1000;
 
-  background-color: transparent;
+  width: 100%;
+  padding: 16px 5%;
+
+  background: transparent;
+
+  transition:
+    transform 0.35s ease,
+    opacity 0.35s ease;
 }
 
-/*
-  At the top of the page, the navbar
-  appears as one connected pill.
-*/
+.navbar.nav-hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-120%);
+}
+
+/* Connected navbar */
 
 .container {
-  width: 100%;
-  max-width: 900px;
+  width: fit-content;
+  max-width: calc(100vw - 40px);
+  min-height: 58px;
   margin: 0 auto;
   padding: 6px;
+
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: auto auto auto;
   align-items: center;
-  gap: 0;
-  background-color: var(--nav-background, rgba(20, 22, 25, 0.9));
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
+
+  background: var(--nav-background, rgba(20, 22, 25, 0.9));
   border: 1px solid var(--border);
   border-radius: 100px;
   box-shadow: 0 10px 28px var(--shadow);
 
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
   transition:
-    max-width 0.4s ease,
-    padding 0.4s ease,
-    gap 0.4s ease,
-    background-color 0.4s ease,
-    border-color 0.4s ease,
-    box-shadow 0.4s ease;
+    width 0.35s ease,
+    background-color 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
 }
 
-/* Three navbar groups */
+/* Navbar groups */
 
 .nav-brand,
 .navbar_menu,
 .nav-actions {
-  background-color: transparent;
+  background: transparent;
   border: 1px solid transparent;
   border-radius: 100px;
   box-shadow: none;
-  transition:
-    background-color 0.4s ease,
-    border-color 0.4s ease,
-    box-shadow 0.4s ease;
 }
 
-/* ================================
+/* =================================
    LOGO
-   ================================ */
+================================= */
 
 .nav-brand {
   padding: 5px;
@@ -120,7 +142,6 @@ img {
 
   display: block;
   object-fit: contain;
-
   border-radius: 50%;
 
   transition: transform 0.3s ease;
@@ -130,16 +151,18 @@ img {
   transform: scale(1.08) rotate(5deg);
 }
 
-/* ================================
-   NAVIGATION LINKS
-   ================================ */
+/* =================================
+   DESKTOP NAVIGATION
+================================= */
 
 .navbar_menu {
-  justify-self: center;
   padding: 5px 12px;
+
   display: flex;
   align-items: center;
+  justify-self: center;
   gap: 8px;
+
   list-style: none;
 }
 
@@ -149,26 +172,31 @@ img {
 
 .nav_link {
   position: relative;
+
   display: inline-block;
   padding: 12px 11px;
+
   color: var(--text);
+  font-family: var(--body);
   font-size: 0.9rem;
-  font-weight: 600;
+  font-weight: 500;
 
   transition: color 0.3s ease;
 }
 
-/* Red animated underline */
-
 .nav_link::after {
   content: "";
-  height: 2px;
+
   position: absolute;
   right: 11px;
   bottom: 7px;
   left: 11px;
-  background-color: var(--accent);
+
+  height: 2px;
+
+  background: var(--accent);
   border-radius: 100px;
+
   transform: scaleX(0);
   transform-origin: right;
   transition: transform 0.3s ease;
@@ -183,27 +211,32 @@ img {
   transform-origin: left;
 }
 
-/* ================================
-   CONTACT AREA
-   ================================ */
+/* =================================
+   CONTACT BUTTON
+================================= */
 
 .nav-actions {
   padding: 5px;
+
   display: flex;
   align-items: center;
 }
 
 .nav_button {
   padding: 12px 19px;
+
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 7px;
 
-  background-color: var(--accent);
+  background: var(--accent);
   border-radius: 100px;
+
+  color: white;
+  font-family: var(--body);
   font-size: 0.85rem;
-  font-weight: 700;
+  font-weight: 500;
 
   transition:
     background-color 0.3s ease,
@@ -212,30 +245,24 @@ img {
 }
 
 .nav_button:hover {
-  background-color: var(--accent-hover, #b90000);
-  color: white;
-
+  background: var(--accent-hover, #b90000);
   transform: translateY(-2px);
-
   box-shadow: 0 8px 18px rgba(255, 32, 32, 0.28);
 }
 
-/* ================================
+/* =================================
    NAVBAR AFTER SCROLLING
-   ================================ */
-
-/*
-  JavaScript adds the .scrolled class
-  after scrolling down the page.
-*/
+================================= */
 
 .navbar.scrolled .container {
-  max-width: 900px;
+  width: fit-content;
   padding: 0;
-  gap: 8px;
-  background-color: transparent;
+  gap: 50px;
+
+  background: transparent;
   border-color: transparent;
   box-shadow: none;
+
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
 }
@@ -243,26 +270,26 @@ img {
 .navbar.scrolled .nav-brand,
 .navbar.scrolled .navbar_menu,
 .navbar.scrolled .nav-actions {
-  background-color: var(--nav-background, rgba(20, 22, 25, 0.9));
+  background: var(--nav-background, rgba(20, 22, 25, 0.9));
+  border-color: var(--border);
+  box-shadow: 0 8px 22px var(--shadow);
 
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
-
-  border-color: var(--border);
-
-  box-shadow: 0 8px 22px var(--shadow);
 }
 
-/* ================================
+/* =================================
    HAMBURGER BUTTON
-   ================================ */
+================================= */
 
 .navbar_toggle {
   width: 44px;
   height: 44px;
   padding: 11px;
+
   display: none;
-  background-color: var(tranparent);
+
+  background: transparent;
   border: none;
   border-radius: 50%;
   cursor: pointer;
@@ -275,7 +302,7 @@ img {
 
   display: block;
 
-  background-color: white;
+  background: currentColor;
   border-radius: 10px;
 
   transition:
@@ -295,23 +322,15 @@ img {
   transform: translateY(-7px) rotate(-45deg);
 }
 
-/* ================================
-   SECTION THEME TRANSITIONS
-   ================================ */
+/* =================================
+   SECTION TRANSITIONS
+================================= */
 
 .home,
 .education-section,
 .about,
 .projects-section,
-.site-footer {
-  border-color: var(--border);
-
-  transition:
-    background-color 0.35s ease,
-    color 0.35s ease,
-    border-color 0.35s ease;
-}
-
+.site-footer,
 .education-card,
 .skill-set {
   border-color: var(--border);
@@ -324,9 +343,9 @@ img {
     box-shadow 0.3s ease;
 }
 
-/* ================================
-   PROJECTS PLACEHOLDER
-   ================================ */
+/* =================================
+   PROJECTS
+================================= */
 
 .projects-section {
   min-height: 300px;
@@ -336,21 +355,26 @@ img {
 .projects-heading {
   max-width: 700px;
   margin: 0 auto;
-
   text-align: center;
 }
 
 .projects-heading h2 {
   margin-top: 8px;
 
-  font-family: "Oswald", sans-serif;
+  font-family: var(--display);
   font-size: clamp(2.5rem, 6vw, 5rem);
-  line-height: 1;
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+
+  font-variation-settings:
+    "wdth" 100,
+    "opsz" 48;
 }
 
-/* ================================
-   KEYBOARD ACCESSIBILITY
-   ================================ */
+/* =================================
+   ACCESSIBILITY
+================================= */
 
 .nav-brand:focus-visible,
 .nav_link:focus-visible,
@@ -360,35 +384,41 @@ img {
   outline-offset: 3px;
 }
 
-/* ================================
-   TABLET AND MOBILE
-   ================================ */
+/* =================================
+   MOBILE NAVBAR
+================================= */
 
 @media (max-width: 925px) {
   .navbar {
     padding: 12px 14px;
   }
 
-  /*
-    On mobile, the navbar remains
-    connected instead of separating.
-  */
-
-  .container {
+  .navbar .container,
+  .navbar.scrolled .container {
+    width: 100%;
     max-width: 100%;
-    padding: 6px;
-    position: relative;
-    grid-template-columns: auto 1fr auto;
-    gap: 8px;
-    background-color: var(--nav-background, rgba(20, 22, 25, 0.9));
-    border-color: var(--border);
+    min-height: 58px;
+    padding: 6px 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0;
+
+    background: var(--nav-background, rgba(20, 22, 25, 0.9));
+    border: 1px solid var(--border);
+    border-radius: 100px;
     box-shadow: 0 10px 28px var(--shadow);
+
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
   }
 
   .nav-brand {
-    grid-column: 1;
+    padding: 5px;
+
+    display: flex;
+    align-items: center;
   }
 
   .nav-actions {
@@ -397,27 +427,35 @@ img {
 
   .navbar_toggle {
     display: block;
-    grid-column: 3;
-    justify-self: end;
+    margin-left: auto;
+    flex-shrink: 0;
     z-index: 1100;
   }
+
+  /* Mobile menu */
 
   .navbar_menu,
   .navbar.scrolled .navbar_menu {
     width: min(320px, calc(100vw - 28px));
     height: auto;
     padding: 18px;
+
     display: flex;
     flex-direction: column;
     align-items: stretch;
     gap: 5px;
+
     position: fixed;
     top: 88px;
     right: -110%;
-    background-color: var(--surface);
+
+    background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 22px;
     box-shadow: 0 18px 38px var(--shadow);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
 
     transition: right 0.35s ease;
   }
@@ -434,7 +472,9 @@ img {
   .nav_link {
     width: 100%;
     padding: 14px 16px;
+
     border-radius: 10px;
+    font-family: var(--body);
     font-size: 1rem;
   }
 
@@ -444,21 +484,23 @@ img {
   }
 
   .nav_link:hover {
-    background-color: var(--card);
+    background: var(--card);
   }
 }
 
-/* ================================
+/* =================================
    SMALL PHONES
-   ================================ */
+================================= */
 
 @media (max-width: 500px) {
   .navbar {
     padding: 10px;
   }
 
-  .container {
-    padding: 5px;
+  .navbar .container,
+  .navbar.scrolled .container {
+    min-height: 54px;
+    padding: 5px 8px;
   }
 
   #nav_logo {
@@ -474,7 +516,6 @@ img {
   .navbar_menu,
   .navbar.scrolled .navbar_menu {
     top: 78px;
-
     width: calc(100vw - 20px);
   }
 
@@ -482,43 +523,19 @@ img {
   .navbar.scrolled .navbar_menu.active {
     right: 10px;
   }
-}
 
-/* ===================================
-   MOBILE NAVBAR AFTER SCROLLING
-   =================================== */
-
-@media (max-width: 925px) {
-  .navbar.scrolled .container {
-    max-width: 100%;
-    padding: 0;
-    background-color: transparent;
-    border-color: transparent;
-    box-shadow: none;
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-  }
-
-  .navbar.scrolled .nav-brand {
-    padding: 5px;
-    color: white;
-    background-color: var(--nav-background, rgba(31, 34, 39, 0.9));
-    border: 1px solid var(--border);
-    border-radius: 50%;
-    box-shadow: 0 8px 22px var(--shadow);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
-  }
-
-  .navbar.scrolled .navbar_toggle {
-    border: 1px solid var(--border);
-    box-shadow: 0 8px 22px var(--shadow);
+  h1,
+  h2,
+  h3 {
+    font-variation-settings:
+      "wdth" 100,
+      "opsz" 40;
   }
 }
 
-/* ================================
+/* =================================
    REDUCED MOTION
-   ================================ */
+================================= */
 
 @media (prefers-reduced-motion: reduce) {
   html {
