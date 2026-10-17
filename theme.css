@@ -231,43 +231,34 @@ body.light-mode #nav_logo {
    NAME TYPING ANIMATION
    =================================== */
 
-.name span {
-  display: inline-block;
-  width: 0;
-  max-width: 14ch;
-
-  overflow: hidden;
-  white-space: nowrap;
-  vertical-align: bottom;
-
-  color: var(--accent);
+#typing-name {
+  display: block;
+  width: max-content;
+  min-width: 0;
+  min-height: 1.05em;
+  padding-right: 5px;
+  color: var(--accent) !important;
   border-right: 4px solid var(--accent);
 
-  animation:
-    typing 12s steps(14, end) infinite,
-    blinking 0.8s step-end infinite;
+  animation: typing-cursor 0.75s step-end infinite;
 }
 
-@keyframes typing {
+@keyframes typing-cursor {
   0%,
-  10% {
-    width: 0;
-  }
-
-  40%,
-  60% {
-    width: 14ch;
-  }
-
-  90%,
   100% {
-    width: 0;
+    border-color: var(--accent);
   }
-}
 
-@keyframes blinking {
   50% {
     border-color: transparent;
+  }
+}
+
+@media (max-width: 550px) {
+  #typing-name {
+    display: block;
+    min-width: 0;
+    margin-top: 5px;
   }
 }
 
