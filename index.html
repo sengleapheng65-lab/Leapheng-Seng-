@@ -372,16 +372,25 @@
     <!-- GoatCounter visitor tracking -->
     <script
       data-goatcounter="https://leon98.goatcounter.com/count"
-      async
-      src="//gc.zgo.at/count.js"
+      src="https://gc.zgo.at/count.js"
     ></script>
 
     <script>
-      window.goatcounter.visit_count({
-        append: "#visitor-number",
-        path: "TOTAL",
-        no_branding: true,
-      });
+      const visitorNumber = document.querySelector("#visitor-number");
+
+      const checkGoatCounter = setInterval(() => {
+        if (window.goatcounter && window.goatcounter.visit_count) {
+          clearInterval(checkGoatCounter);
+
+          visitorNumber.textContent = "";
+
+          window.goatcounter.visit_count({
+            append: "#visitor-number",
+            path: "TOTAL",
+            no_branding: true,
+          });
+        }
+      }, 100);
     </script>
 
     <script src="./index.js"></script>
