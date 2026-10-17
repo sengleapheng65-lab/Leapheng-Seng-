@@ -158,6 +158,38 @@
 }
 
 /* ===================================
+   EDUCATION META AND SCHOOL LOGO
+   =================================== */
+
+.education-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.school-logo {
+  display: block;
+  width: 90px;
+  height: 90px;
+  padding: 9px;
+
+  object-fit: contain;
+  background-color: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.education-card:hover .school-logo {
+  transform: scale(1.08);
+  box-shadow: 0 8px 20px var(--shadow);
+}
+
+/* ===================================
    EDUCATION TEXT
    =================================== */
 
@@ -268,8 +300,18 @@ body.light-mode .education-year {
     transform: scaleX(1);
   }
 
+  .education-meta {
+    align-items: center;
+    gap: 18px;
+  }
+
   .education-year {
     margin: 0 auto;
+  }
+
+  .school-logo {
+    width: 75px;
+    height: 75px;
   }
 
   .education-card h3 {
