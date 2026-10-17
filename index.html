@@ -189,11 +189,6 @@
               alt="Portrait of Leapheng Seng"
             />
           </div>
-
-          <div class="visitor-counter" aria-live="polite">
-            <span>Portfolio Visits</span>
-            <strong id="visitor-number">Loading...</strong>
-          </div>
         </div>
       </section>
 
@@ -374,28 +369,6 @@
       data-goatcounter="https://leon98.goatcounter.com/count"
       src="https://gc.zgo.at/count.js"
     ></script>
-
-    <script
-      data-goatcounter="https://leon98.goatcounter.com/count"
-      src="https://gc.zgo.at/count.js"
-    ></script>
-
-    <script>
-      const visitorNumber = document.querySelector("#visitor-number");
-
-      const checkGoatCounter = setInterval(() => {
-        if (window.goatcounter && window.goatcounter.visit_count) {
-          clearInterval(checkGoatCounter);
-
-          visitorNumber.textContent = "";
-
-          window.goatcounter.visit_count({
-            append: "#visitor-number",
-            no_branding: true,
-          });
-        }
-      }, 100);
-    </script>
 
     <script src="./index.js"></script>
   </body>
