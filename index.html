@@ -189,6 +189,11 @@
               alt="Portrait of Leapheng Seng"
             />
           </div>
+
+          <div class="visitor-counter" aria-live="polite">
+            <span>Portfolio Visits</span>
+            <strong id="visitor-number">Loading...</strong>
+          </div>
         </div>
       </section>
 
@@ -363,6 +368,21 @@
         <p>Built with HTML, CSS, and JavaScript.</p>
       </div>
     </footer>
+
+    <!-- GoatCounter visitor tracking -->
+    <script
+      data-goatcounter="https://leon98.goatcounter.com/count"
+      async
+      src="//gc.zgo.at/count.js"
+    ></script>
+
+    <script>
+      window.goatcounter.visit_count({
+        append: "#visitor-number",
+        path: "TOTAL",
+        no_branding: true,
+      });
+    </script>
 
     <script src="./index.js"></script>
   </body>

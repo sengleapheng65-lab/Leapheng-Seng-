@@ -249,6 +249,39 @@
 }
 
 /* ===================================
+   PROFILE VISITOR COUNTER
+   =================================== */
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.visitor-counter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  margin-top: 18px;
+  text-align: center;
+}
+
+.visitor-counter span {
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+#visitor-number {
+  color: var(--text);
+  font-size: 22px;
+  font-weight: 800;
+}
+
+/* ===================================
    TABLET AND MOBILE
    =================================== */
 
