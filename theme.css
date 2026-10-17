@@ -1,89 +1,185 @@
+/* ===================================
+   COLOR VARIABLES
+   =================================== */
+
 :root {
+  color-scheme: dark;
+
   --background: #141619;
   --surface: #141619;
   --card: #1d2228;
-  --text: whitesmoke;
+
+  --text: #f5f5f5;
   --muted: #a8adb5;
+
   --border: #292e34;
   --accent: #ff2020;
+  --accent-hover: #c90000;
+
+  --nav-background: rgba(20, 22, 25, 0.88);
   --shadow: rgba(0, 0, 0, 0.35);
 }
 
 body.light-mode {
+  color-scheme: light;
+
   --background: #ffffff;
   --surface: #ffffff;
-  --card: #ffffff;
+  --card: #f5f5f5;
+
   --text: #111111;
   --muted: #555555;
+
   --border: #d8d8d8;
   --accent: #d90000;
+  --accent-hover: #a90000;
+
+  --nav-background: rgba(255, 255, 255, 0.9);
   --shadow: rgba(0, 0, 0, 0.12);
 }
 
+/* ===================================
+   PAGE THEME
+   =================================== */
+
 body {
-  background-color: var(--background) !important;
-  color: var(--text) !important;
+  background-color: var(--background);
+  color: var(--text);
+
   transition:
     background-color 0.35s ease,
     color 0.35s ease;
 }
 
-.navbar,
-.container,
 .home,
 .about,
-footer,
+.education-section,
+.projects-section,
 .site-footer {
-  background-color: var(--surface) !important;
-  color: var(--text) !important;
-  border-color: var(--border) !important;
+  background-color: var(--surface);
+  color: var(--text);
+
+  transition:
+    background-color 0.35s ease,
+    color 0.35s ease,
+    border-color 0.35s ease;
 }
 
-.skill-set {
-  background-color: var(--card) !important;
-  border-color: var(--border) !important;
-}
+/*
+  Do not add .navbar or .container here.
 
-.nav_link,
+  Leapheng.css controls the connected and separated
+  navbar backgrounds.
+*/
+
+/* ===================================
+   TEXT COLORS
+   =================================== */
+
 .name,
 .welcome,
 .skill-title,
 .skill-headline,
-.description {
-  color: var(--text) !important;
+.education-heading h2,
+.education-card h3,
+.nav_link {
+  color: var(--text);
+}
+
+.description,
+.skill-description,
+.education-heading > p:last-child,
+.education-card p,
+.footer-content p,
+.footer-bottom {
+  color: var(--muted);
 }
 
 .skill,
-.skill span {
-  color: var(--accent) !important;
+.skill span,
+.section-label,
+.education-year {
+  color: var(--accent);
 }
 
-.skill-description {
-  color: var(--muted) !important;
+/* ===================================
+   CARDS
+   =================================== */
+
+.skill-set,
+.education-card {
+  background-color: var(--card);
+  border-color: var(--border);
+
+  transition:
+    background-color 0.35s ease,
+    color 0.35s ease,
+    border-color 0.35s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
-/* Navigation button */
+/* ===================================
+   NAVIGATION THEME
+   =================================== */
 
-.nav_button {
-  background-color: var(--accent) !important;
-  color: white !important;
+.nav_link {
+  color: var(--text);
 }
 
 .nav_link:hover {
-  color: var(--accent) !important;
+  color: var(--accent);
 }
 
-.nav_link:hover::after {
-  background-color: var(--accent) !important;
+/* Red loading line under navigation links */
+
+.nav_link::after {
+  background-color: var(--accent);
+}
+
+.nav_link:hover::after,
+.nav_link:focus-visible::after {
   transform: scaleX(1);
   transform-origin: left;
 }
 
-.navbar_toggle .bar {
-  background-color: var(--text) !important;
+.nav_button {
+  background-color: var(--accent);
+  color: #ffffff;
 }
 
-/* Floating theme button */
+.nav_button:hover {
+  background-color: var(--accent-hover);
+  color: #ffffff;
+}
+
+.navbar_toggle .bar {
+  background-color: var(--text);
+}
+
+/* Logo background */
+
+#nav_logo {
+  padding: 6px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background-color: #111315;
+  object-fit: contain;
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.35s ease,
+    background-color 0.35s ease;
+}
+
+body.light-mode #nav_logo {
+  background-color: #111111;
+  border-color: #222222;
+}
+
+/* ===================================
+   FLOATING THEME BUTTON
+   =================================== */
 
 #theme-toggle {
   position: fixed;
@@ -91,48 +187,115 @@ footer,
   bottom: 25px;
   z-index: 2000;
 
+  display: grid;
+  place-items: center;
+
   width: 54px;
   height: 54px;
+  margin: 0;
+  padding: 0;
 
   border: 1px solid var(--border);
   border-radius: 50%;
+
   background-color: var(--card);
   color: var(--text);
 
   cursor: pointer;
   font-size: 22px;
+  line-height: 1;
+
   box-shadow: 0 8px 20px var(--shadow);
-  transition: all 0.3s ease;
+
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 #theme-toggle:hover {
   background-color: var(--accent);
-  color: white;
+  color: #ffffff;
   transform: translateY(-5px) rotate(15deg);
   box-shadow: 0 12px 25px rgba(255, 32, 32, 0.35);
 }
 
-/* Footer */
+#theme-toggle:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 4px;
+}
+
+/* ===================================
+   NAME TYPING ANIMATION
+   =================================== */
+
+.name span {
+  display: inline-block;
+  width: 0;
+  max-width: 14ch;
+
+  overflow: hidden;
+  white-space: nowrap;
+  vertical-align: bottom;
+
+  color: var(--accent);
+  border-right: 4px solid var(--accent);
+
+  animation:
+    typing 12s steps(14, end) infinite,
+    blinking 0.8s step-end infinite;
+}
+
+@keyframes typing {
+  0%,
+  10% {
+    width: 0;
+  }
+
+  40%,
+  60% {
+    width: 14ch;
+  }
+
+  90%,
+  100% {
+    width: 0;
+  }
+}
+
+@keyframes blinking {
+  50% {
+    border-color: transparent;
+  }
+}
+
+/* ===================================
+   FOOTER
+   =================================== */
 
 .site-footer {
   width: 100%;
   margin-top: 80px;
   padding: 55px 8% 25px;
+
   border-top: 1px solid var(--border);
 }
 
 .footer-content {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   gap: 30px;
+
   padding-bottom: 35px;
 }
 
 .footer-content h2 {
   margin-bottom: 10px;
+
   color: var(--accent);
-  font-family: "Space Grotesk", sans-serif;
   font-size: 26px;
 }
 
@@ -150,6 +313,8 @@ footer,
 .footer-links a {
   color: var(--text);
   font-size: 14px;
+  text-decoration: none;
+
   transition: color 0.3s ease;
 }
 
@@ -160,72 +325,26 @@ footer,
 .footer-bottom {
   display: flex;
   justify-content: space-between;
+  gap: 20px;
+
   padding-top: 22px;
   border-top: 1px solid var(--border);
+
   font-size: 12px;
 }
 
-#nav_logo {
-  padding: 6px;
-  border-radius: 50%;
-  background-color: #141619;
-  border: 1px solid var(--border);
-  object-fit: contain;
-}
-
-/* Make the logo visible in light mode */
-body.light-mode #nav_logo {
-  background-color: #111111;
-  border-color: #111111;
-}
-
-.name span {
-  display: inline-block;
-  max-width: 100%;
-  overflow: hidden;
-  white-space: nowrap;
-  vertical-align: bottom;
-
-  color: var(--accent) !important;
-  border-right: 4px solid var(--accent);
-
-  width: 0;
-  animation:
-    typing 12s steps(10, end) infinite,
-    blinking 0.8s step-end infinite;
-}
-
-@keyframes typing {
-  0%,
-  10% {
-    width: 0;
-  }
-
-  45%,
-  55% {
-    width: 11ch;
-  }
-
-  90%,
-  100% {
-    width: 0;
-  }
-}
-
-@keyframes blinking {
-  50% {
-    border-color: transparent;
-  }
-}
-
-/* Mobile */
+/* ===================================
+   MOBILE
+   =================================== */
 
 @media (max-width: 600px) {
   #theme-toggle {
     right: 18px;
     bottom: 18px;
+
     width: 48px;
     height: 48px;
+
     font-size: 19px;
   }
 
@@ -237,6 +356,33 @@ body.light-mode #nav_logo {
   }
 
   .footer-links {
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 18px;
+  }
+
+  .name span {
+    max-width: 13ch;
+  }
+}
+
+/* ===================================
+   REDUCED MOTION
+   =================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .name span {
+    width: auto;
+    max-width: none;
+    border-right: none;
   }
 }

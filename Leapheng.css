@@ -1,72 +1,137 @@
+/* ================================
+   RESET
+   ================================ */
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-:root {
-  --background: #141619;
-  --surface: #141619;
-  --card: #1d2228;
-  --text: #ffe8db;
-  --muted: #a8adb5;
-  --border: #292e34;
-  --accent: #ff2020;
-  --shadow: rgba(0, 0, 0, 0.35);
-}
-
-body.light-mode {
-  --background: #ffffff;
-  --surface: #ffffff;
-  --card: #ffffff;
-  --text: #111111;
-  --muted: #555555;
-  --border: #dddddd;
-  --accent: #d90000;
-  --shadow: rgba(0, 0, 0, 0.12);
-}
-
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 110px;
 }
 
 body {
-  background-color: var(--background);
-  color: var(--text);
+  min-height: 100vh;
+
   font-family: "DM Sans", sans-serif;
-  transition:
-    background-color 0.35s ease,
-    color 0.35s ease;
+  line-height: 1.6;
+
+  overflow-x: hidden;
 }
 
-/* Navigation */
+body.menu-open {
+  overflow: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ================================
+   NAVIGATION
+   ================================ */
 
 .navbar {
-  position: sticky;
+  width: 100%;
+  padding: 16px 5%;
+
+  position: fixed;
   top: 0;
+  left: 0;
+
   z-index: 1000;
-  background-color: var(--surface);
+
+  background-color: transparent;
 }
+
+/*
+  At the top of the page, the navbar
+  appears as one connected pill.
+*/
 
 .container {
   width: 100%;
-  height: 95px;
-  padding: 0 7%;
-  display: flex;
+  max-width: 900px;
+
+  margin: 0 auto;
+  padding: 6px;
+
+  display: grid;
+  grid-template-columns: auto 1fr auto;
   align-items: center;
-  justify-content: space-between;
-  background-color: var(--surface);
-  box-shadow: 0 8px 25px var(--shadow);
-  transition: background-color 0.35s ease;
+  gap: 0;
+
+  background-color: var(--nav-background, rgba(20, 22, 25, 0.9));
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  border: 1px solid var(--border);
+  border-radius: 100px;
+
+  box-shadow: 0 10px 28px var(--shadow);
+
+  transition:
+    max-width 0.4s ease,
+    padding 0.4s ease,
+    gap 0.4s ease,
+    background-color 0.4s ease,
+    border-color 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+/* Three navbar groups */
+
+.nav-brand,
+.navbar_menu,
+.nav-actions {
+  background-color: transparent;
+
+  border: 1px solid transparent;
+  border-radius: 100px;
+
+  box-shadow: none;
+
+  transition:
+    background-color 0.4s ease,
+    border-color 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+/* ================================
+   LOGO
+   ================================ */
+
+.nav-brand {
+  padding: 5px;
+
+  display: grid;
+  place-items: center;
 }
 
 #nav_logo {
-  width: 68px;
-  height: 68px;
-  padding: 4px;
-  object-fit: cover;
+  width: 45px;
+  height: 45px;
+
+  display: block;
+  object-fit: contain;
+
   border-radius: 50%;
-  border: black 10px;
+
   transition: transform 0.3s ease;
 }
 
@@ -74,10 +139,19 @@ body {
   transform: scale(1.08) rotate(5deg);
 }
 
+/* ================================
+   NAVIGATION LINKS
+   ================================ */
+
 .navbar_menu {
+  justify-self: center;
+
+  padding: 5px 12px;
+
   display: flex;
   align-items: center;
-  gap: 38px;
+  gap: 8px;
+
   list-style: none;
 }
 
@@ -87,24 +161,36 @@ body {
 
 .nav_link {
   position: relative;
+
   display: inline-block;
-  padding: 8px 0;
+  padding: 12px 11px;
+
   color: var(--text);
-  font-size: 17px;
-  text-decoration: none;
+
+  font-size: 0.9rem;
+  font-weight: 600;
+
   transition: color 0.3s ease;
 }
 
+/* Red animated underline */
+
 .nav_link::after {
   content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
+
   height: 2px;
+
+  position: absolute;
+  right: 11px;
+  bottom: 7px;
+  left: 11px;
+
   background-color: var(--accent);
+  border-radius: 100px;
+
   transform: scaleX(0);
   transform-origin: right;
+
   transition: transform 0.3s ease;
 }
 
@@ -117,131 +203,277 @@ body {
   transform-origin: left;
 }
 
+/* ================================
+   CONTACT AREA
+   ================================ */
+
+.nav-actions {
+  padding: 5px;
+
+  display: flex;
+  align-items: center;
+}
+
 .nav_button {
+  padding: 12px 19px;
+
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 12px 20px;
-  border-radius: 25px;
+  gap: 7px;
+
   background-color: var(--accent);
   color: white;
-  font-size: 15px;
-  font-weight: bold;
-  text-decoration: none;
-  transition: all 0.3s ease;
+
+  border-radius: 100px;
+
+  font-size: 0.85rem;
+  font-weight: 700;
+
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .nav_button:hover {
-  background-color: #b90000;
+  background-color: var(--accent-hover, #b90000);
   color: white;
-  transform: translateY(-3px);
-  box-shadow: 0 8px 18px rgba(255, 32, 32, 0.3);
+
+  transform: translateY(-2px);
+
+  box-shadow: 0 8px 18px rgba(255, 32, 32, 0.28);
 }
 
-/* Theme button */
+/* ================================
+   NAVBAR AFTER SCROLLING
+   ================================ */
 
-#theme-toggle {
-  width: 42px;
-  height: 42px;
-  margin-left: 20px;
-  border: 1px solid var(--border);
-  border-radius: 50%;
-  background-color: var(--card);
-  color: var(--text);
-  cursor: pointer;
-  font-size: 18px;
-  transition: 0.3s ease;
+/*
+  JavaScript adds the .scrolled class
+  after scrolling down the page.
+*/
+
+.navbar.scrolled .container {
+  max-width: 900px;
+
+  padding: 0;
+  gap: 8px;
+
+  background-color: transparent;
+
+  border-color: transparent;
+
+  box-shadow: none;
+
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 
-#theme-toggle:hover {
-  background-color: var(--accent);
-  color: white;
-  transform: rotate(20deg) scale(1.08);
+.navbar.scrolled .nav-brand,
+.navbar.scrolled .navbar_menu,
+.navbar.scrolled .nav-actions {
+  background-color: var(--nav-background, rgba(20, 22, 25, 0.9));
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  border-color: var(--border);
+
+  box-shadow: 0 8px 22px var(--shadow);
 }
 
-/* Hamburger menu */
+/* ================================
+   HAMBURGER BUTTON
+   ================================ */
 
 .navbar_toggle {
+  width: 44px;
+  height: 44px;
+  padding: 11px;
+
   display: none;
+
+  background-color: var(--accent);
+
+  border: none;
+  border-radius: 50%;
+
   cursor: pointer;
 }
 
 .navbar_toggle .bar {
-  display: block;
-  width: 29px;
-  height: 3px;
+  width: 100%;
+  height: 2px;
   margin: 5px 0;
-  border-radius: 5px;
-  background-color: var(--text);
-  transition: all 0.3s ease;
+
+  display: block;
+
+  background-color: white;
+  border-radius: 10px;
+
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
 }
 
-/* Other sections */
+.navbar_toggle.active .bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.navbar_toggle.active .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.navbar_toggle.active .bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ================================
+   SECTION THEME TRANSITIONS
+   ================================ */
 
 .home,
+.education-section,
 .about,
-footer {
-  background-color: var(--surface);
-  color: var(--text);
+.projects-section,
+.site-footer {
   border-color: var(--border);
+
   transition:
     background-color 0.35s ease,
-    color 0.35s ease;
+    color 0.35s ease,
+    border-color 0.35s ease;
 }
 
+.education-card,
 .skill-set {
-  background-color: var(--card);
   border-color: var(--border);
+
+  transition:
+    background-color 0.35s ease,
+    color 0.35s ease,
+    border-color 0.35s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
-.name,
-.welcome,
-.skill-title,
-.skill-headline,
-.description,
-.nav_link {
-  color: var(--text);
+/* ================================
+   PROJECTS PLACEHOLDER
+   ================================ */
+
+.projects-section {
+  min-height: 300px;
+  padding: 100px 7%;
 }
 
-.skill-description {
-  color: var(--muted);
+.projects-heading {
+  max-width: 700px;
+  margin: 0 auto;
+
+  text-align: center;
 }
 
-/* Tablet and mobile */
+.projects-heading h2 {
+  margin-top: 8px;
+
+  font-family: "Oswald", sans-serif;
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  line-height: 1;
+}
+
+/* ================================
+   KEYBOARD ACCESSIBILITY
+   ================================ */
+
+.nav-brand:focus-visible,
+.nav_link:focus-visible,
+.nav_button:focus-visible,
+.navbar_toggle:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* ================================
+   TABLET AND MOBILE
+   ================================ */
 
 @media (max-width: 925px) {
-  .container {
-    height: 82px;
-    padding: 0 25px;
+  .navbar {
+    padding: 12px 14px;
   }
 
-  #nav_logo {
-    width: 58px;
-    height: 58px;
+  /*
+    On mobile, the navbar remains
+    connected instead of separating.
+  */
+
+  .container,
+  .navbar.scrolled .container {
+    max-width: 100%;
+
+    padding: 6px;
+
+    position: relative;
+
+    grid-template-columns: auto 1fr auto;
+    gap: 8px;
+
+    background-color: var(--nav-background, rgba(20, 22, 25, 0.9));
+
+    border-color: var(--border);
+
+    box-shadow: 0 10px 28px var(--shadow);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+  }
+
+  .nav-brand {
+    grid-column: 1;
+  }
+
+  .nav-actions {
+    display: none;
   }
 
   .navbar_toggle {
     display: block;
+
+    grid-column: 3;
+    justify-self: end;
+
     z-index: 1100;
   }
 
-  .navbar_menu {
-    position: fixed;
-    top: 82px;
-    right: -100%;
-    width: min(300px, 85%);
-    height: calc(100vh - 82px);
-    padding: 40px 25px;
+  .navbar_menu,
+  .navbar.scrolled .navbar_menu {
+    width: min(320px, calc(100vw - 28px));
+    height: auto;
+    padding: 18px;
+
+    display: flex;
     flex-direction: column;
     align-items: stretch;
-    gap: 12px;
+    gap: 5px;
+
+    position: fixed;
+    top: 88px;
+    right: -110%;
+
     background-color: var(--surface);
-    box-shadow: -8px 0 25px var(--shadow);
+
+    border: 1px solid var(--border);
+    border-radius: 22px;
+
+    box-shadow: 0 18px 38px var(--shadow);
+
     transition: right 0.35s ease;
   }
 
-  .navbar_menu.active {
-    right: 0;
+  .navbar_menu.active,
+  .navbar.scrolled .navbar_menu.active {
+    right: 14px;
   }
 
   .navbar_menu .item {
@@ -249,44 +481,81 @@ footer {
   }
 
   .nav_link {
-    display: block;
-    padding: 15px;
-    border-radius: 8px;
-    font-size: 18px;
+    width: 100%;
+    padding: 14px 16px;
+
+    border-radius: 10px;
+
+    font-size: 1rem;
+  }
+
+  .nav_link::after {
+    right: 16px;
+    left: 16px;
   }
 
   .nav_link:hover {
     background-color: var(--card);
-    transform: translateX(5px);
   }
 
-  .nav_button {
-    margin-top: 12px;
-    padding: 14px;
-    text-align: center;
-  }
+  .navbar.scrolled .nav-brand {
+    background-color: transparent;
 
-  .navbar_toggle.active .bar:nth-child(1) {
-    transform: rotate(45deg) translate(6px, 6px);
-  }
+    border-color: transparent;
 
-  .navbar_toggle.active .bar:nth-child(2) {
-    opacity: 0;
-  }
-
-  .navbar_toggle.active .bar:nth-child(3) {
-    transform: rotate(-45deg) translate(6px, -6px);
+    box-shadow: none;
   }
 }
 
-/* Small phones */
+/* ================================
+   SMALL PHONES
+   ================================ */
 
 @media (max-width: 500px) {
-  .container {
-    padding: 0 18px;
+  .navbar {
+    padding: 10px;
   }
 
-  .navbar_menu {
-    width: 100%;
+  .container,
+  .navbar.scrolled .container {
+    padding: 5px;
+  }
+
+  #nav_logo {
+    width: 42px;
+    height: 42px;
+  }
+
+  .navbar_toggle {
+    width: 42px;
+    height: 42px;
+  }
+
+  .navbar_menu,
+  .navbar.scrolled .navbar_menu {
+    top: 78px;
+
+    width: calc(100vw - 20px);
+  }
+
+  .navbar_menu.active,
+  .navbar.scrolled .navbar_menu.active {
+    right: 10px;
+  }
+}
+
+/* ================================
+   REDUCED MOTION
+   ================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
   }
 }
