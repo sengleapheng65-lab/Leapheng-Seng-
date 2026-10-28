@@ -229,27 +229,27 @@
 .project-tags li {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 5px 9px;
+  gap: 8px;
+  padding: 7px 11px;
   background: color-mix(in srgb, var(--accent) 12%, var(--card));
   border: 1px solid color-mix(in srgb, var(--accent) 38%, var(--border));
   border-radius: 999px;
   color: var(--text);
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 600;
 }
 
 .project-tags li > i {
   display: inline-block;
-  width: 15px;
-  height: 15px;
-  font-size: 15px;
+  width: 18px;
+  height: 18px;
+  font-size: 18px;
   line-height: 1;
 }
 
 .project-tags li > svg {
-  width: 15px;
-  height: 15px;
+  width: 18px;
+  height: 18px;
   color: var(--accent);
   stroke-width: 2;
 }

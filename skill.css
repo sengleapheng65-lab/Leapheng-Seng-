@@ -230,9 +230,9 @@
 .skill-tags li {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
 
-  padding: 6px 10px;
+  padding: 7px 11px;
 
   background-color: color-mix(in srgb, var(--accent) 12%, var(--card));
   border: 1px solid color-mix(in srgb, var(--accent) 38%, var(--border));
@@ -246,16 +246,16 @@
 
 .skill-tags li > i {
   display: inline-block;
-  width: 14px;
-  height: 14px;
+  width: 18px;
+  height: 18px;
 
-  font-size: 14px;
+  font-size: 18px;
   line-height: 1;
 }
 
 .skill-tags li > svg {
-  width: 14px;
-  height: 14px;
+  width: 18px;
+  height: 18px;
 
   color: var(--accent);
   stroke-width: 2;
