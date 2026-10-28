@@ -344,35 +344,6 @@ h3 {
 }
 
 /* =================================
-   PROJECTS
-================================= */
-
-.projects-section {
-  min-height: 300px;
-  padding: 100px 7%;
-}
-
-.projects-heading {
-  max-width: 700px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.projects-heading h2 {
-  margin-top: 8px;
-
-  font-family: var(--display);
-  font-size: clamp(2.5rem, 6vw, 5rem);
-  font-weight: 700;
-  line-height: 0.95;
-  letter-spacing: -0.03em;
-
-  font-variation-settings:
-    "wdth" 100,
-    "opsz" 48;
-}
-
-/* =================================
    ACCESSIBILITY
 ================================= */
 

@@ -143,10 +143,10 @@
   display: grid;
   place-items: center;
 
-  width: 62px;
-  height: 62px;
+  width: 80px;
+  height: 80px;
   margin-bottom: 27px;
-  padding: 10px;
+  padding: 13px;
 
   background-color: #ffffff;
 
@@ -179,6 +179,12 @@
 
   color: var(--accent);
   stroke-width: 1.8;
+}
+
+.skill-icon > i[data-lucide] {
+  color: var(--accent);
+  font-size: 42px;
+  line-height: 1;
 }
 
 /* ===================================
