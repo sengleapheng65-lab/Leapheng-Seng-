@@ -180,7 +180,7 @@
 
 .project-download {
   width: fit-content;
-  margin-top: 20px;
+  margin-top: 0;
   padding: 9px 13px;
   display: inline-flex;
   align-items: center;
@@ -193,6 +193,13 @@
   transition:
     background-color 0.3s ease,
     transform 0.3s ease;
+}
+
+.project-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
 }
 
 .project-download:hover {
